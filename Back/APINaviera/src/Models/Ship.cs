@@ -8,8 +8,10 @@ namespace APINaviera.src.Models
         [Key]
         public int id { get; set; }
         [Required]
+        [MaxLength(30)]
         public string name { get; set; }
         [Required]
+        [MaxLength(20)]
         public string model { get; set; }
         public string? image { get; set; }
     }

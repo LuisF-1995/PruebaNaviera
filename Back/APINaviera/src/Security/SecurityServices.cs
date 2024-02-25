@@ -45,10 +45,15 @@ namespace APINaviera.src.Security
             return tokenString;
         }
 
-        public bool PasswordMatches(string password, string hashedPassword)
+        public bool PasswordMatches(UserLogin userLogin, User existentUser)
         {
-            string hashedInputPassword = HashPassword(password);
-            return hashedInputPassword == hashedPassword;
+            bool authState = false;
+            string hashedInputPassword = HashPassword(userLogin.password);
+
+            if(hashedInputPassword == existentUser.password && userLogin.email == existentUser.email)
+                authState = true;
+
+            return authState;
         }
     }
 }

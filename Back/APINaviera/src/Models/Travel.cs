@@ -10,8 +10,10 @@ namespace APINaviera.src.Models
         public int? shipId { get; set; }
         public DateTime? departureDateTime { get; set; }
         [Required]
-        public Double cost { get; set; }
+        public double cost { get; set; }
         [Required]
         public int passengersLimit { get; set; }
+        [Required]
+        public int availableSeatsNumber { get; set; }
     }
 }

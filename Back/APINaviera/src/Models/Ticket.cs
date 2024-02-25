@@ -11,10 +11,14 @@ namespace APINaviera.src.Models
         [Required]
         public int travelId { get; set; }
         [Required]
+        [MaxLength(20)]
         public string ticket { get; set; }
         [Required]
-        public Boolean returns { get; set; }
+        public bool returns { get; set; }
         [Required]
+        [MaxLength(5)]
         public string seat { get; set; }
+        [Required]
+        public bool redeemed { get; set; }
     }
 }

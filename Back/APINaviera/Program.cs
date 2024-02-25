@@ -45,6 +45,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 // UserServices
 builder.Services.AddScoped<UserServices>();
 builder.Services.AddScoped<SecurityServices>();
+builder.Services.AddScoped<TicketServices>();
+builder.Services.AddScoped<TravelServices>();
 /* =========================================================================================================*/
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -30,31 +30,17 @@ namespace APINaviera.src.Controllers
 
         [HttpGet]
         public IEnumerable<UserDTO> GetAllUsers()
-        {   
+        {
             var usersList = _dbContext.Users.ToList();
             var usersDtoList = _userServices.ConverListUserToLisUserDTO(usersList);
             return usersDtoList;
         }
 
-        [HttpGet("roles-string")]
-        public IEnumerable<string> GetRolesString()
-        {
-            var userRoles = Enum.GetValues(typeof(UserRoles)).Cast<UserRoles>().Select(role => role.ToString());
-            return userRoles;
-        }
-        [HttpGet("roles")]
-        public IEnumerable<UserRoles> GetRoles()
-        {
-            var userRoles = Enum.GetValues(typeof(UserRoles)).Cast<UserRoles>();
-            return userRoles;
-        }
-
-
         [HttpGet("{id}")]
         public IActionResult GetUserById(int id)
         {
             var user = _dbContext.Users.FirstOrDefault(userFind => userFind.id == id);
-            
+
             if (user == null)
             {
                 var userResponse = new FetchUserInfoResponse
@@ -77,6 +63,22 @@ namespace APINaviera.src.Controllers
                 };
                 return Ok(userResponse);
             }
+        }
+
+        [AllowAnonymous]
+        [HttpGet("roles-string")]
+        public IEnumerable<string> GetRolesString()
+        {
+            var userRoles = Enum.GetValues(typeof(UserRoles)).Cast<UserRoles>().Select(role => role.ToString());
+            return userRoles;
+        }
+
+        [AllowAnonymous]
+        [HttpGet("roles")]
+        public IEnumerable<UserRoles> GetRoles()
+        {
+            var userRoles = Enum.GetValues(typeof(UserRoles)).Cast<UserRoles>();
+            return userRoles;
         }
 
         [AllowAnonymous]
@@ -211,7 +213,7 @@ namespace APINaviera.src.Controllers
                 };
                 return BadRequest(userResponseBad);
             }
-            else if (userFound != null && !_securityServices.PasswordMatches(userLogin.password, userFound.password))
+            else if (userFound != null && !_securityServices.PasswordMatches(userLogin, userFound))
             {
                 var userResponseUnauthorized = new FetchUserInfoResponse
                 {
