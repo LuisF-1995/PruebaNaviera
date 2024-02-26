@@ -51,5 +51,8 @@ export class AppComponent implements OnInit {
     }
   }
 
-
+  closeSession(){
+    localStorage.clear();
+    this.router.navigateByUrl(root.path);
+  }
 }

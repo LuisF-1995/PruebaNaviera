@@ -15,9 +15,8 @@ namespace APINaviera.src.Models
         public string ticket { get; set; }
         [Required]
         public bool returns { get; set; }
-        [Required]
         [MaxLength(5)]
-        public string seat { get; set; }
+        public string? seat { get; set; }
         [Required]
         public bool redeemed { get; set; }
     }

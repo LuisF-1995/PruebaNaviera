@@ -13,6 +13,18 @@ namespace APINaviera.src.Services
             _dbContext = dbContext;
         }
 
+        public User GetUserById(int userId)
+        {
+            var user = _dbContext.Users.FirstOrDefault(userFind => userFind.id == userId);
+            return user;
+        }
+
+        public User GetUserByEmail(string userEmail)
+        {
+            var user = _dbContext.Users.FirstOrDefault(userFind => userFind.email == userEmail);
+            return user;
+        }
+
         public UserDTO ConvertUserToUserDTO(User user) {
             var userDto = new UserDTO {
                 id = user.id,

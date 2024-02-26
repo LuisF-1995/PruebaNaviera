@@ -9,7 +9,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  get(apiUrl:string, endpoint: string, token?:string): Observable<any> {
+  get(apiUrl:string, endpoint: string, token?:string|null): Observable<any> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });

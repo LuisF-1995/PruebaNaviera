@@ -45,7 +45,7 @@ export interface ITicket {
 }
 
 export interface ITravel {
-  id?: number;
+  id: number;
   destination: string;
   shipId: number;
   departureDateTime: string;
@@ -59,4 +59,7 @@ export interface IApiResponse {
   message: string;
   httpCode: HttpStatusCode;
   objectResponse: any;
+  id?:number;
+  role?:number;
+  token?:string;
 }

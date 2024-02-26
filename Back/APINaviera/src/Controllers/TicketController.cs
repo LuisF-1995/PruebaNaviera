@@ -119,6 +119,7 @@ namespace APINaviera.src.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult RegisterTicket([FromBody] Ticket ticketRegister)
         {

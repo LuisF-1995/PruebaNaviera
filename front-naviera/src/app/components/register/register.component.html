@@ -1,1 +1,50 @@
-<p>register works!</p>
+<form (ngSubmit)="registerUser()" ngNativeValidate style="padding: 10px;">
+  <div class="mb-3">
+    <label for="inputName" class="form-label">Nombres y apellidos</label>
+    <input [(ngModel)]="registerUserForm.name" name="name" type="text" class="form-control" id="inputName" placeholder="Pepito perez" required>
+  </div>
+  <div class="mb-3">
+    <label for="inputEmail" class="form-label">Correo Electrónico</label>
+    <input [(ngModel)]="registerUserForm.email" name="email" type="email" class="form-control" id="inputEmail" placeholder="nombre@ejemplo.com" required>
+    @if(errorMessage.length > 0){
+      <div>
+        {{errorMessage}}
+      </div>
+    }
+  </div>
+  <div class="mb-3">
+    <label for="inputName" class="form-label">Número de documento</label>
+    <input [(ngModel)]="registerUserForm.documentNumber" name="documentNumber" type="text" class="form-control" id="inputDocumentNumber" placeholder="123456789" required>
+  </div>
+  <div class="mb-3">
+    <label for="inputTel" class="form-label">Teléfono</label>
+    <input [(ngModel)]="registerUserForm.phone" name="phone" type="tel" class="form-control" id="inputTel" placeholder="1234567890">
+  </div>
+  <div class="mb-3">
+    <label for="inputPassword" class="form-label">Contraseña</label>
+    <div style="display: flex;">
+      <input [(ngModel)]="registerUserForm.password" [type]="hidePassword ? 'password' : 'text'" name="password" class="form-control" id="inputPassword" placeholder="Contraseña" (change)="validatePassword()" required>
+      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="validatePassword" class="form-label">Validar contraseña</label>
+    <div style="display: flex;">
+      <input [(ngModel)]="passValidate" [type]="hidePassValidator ? 'password' : 'text'" name="passValidate" class="form-control" id="validatePassword" placeholder="Misma contraseña" (change)="validatePassword()" required>
+      <button mat-icon-button matSuffix (click)="hidePassValidator = !hidePassValidator" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassValidator">
+        <mat-icon>{{hidePassValidator ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </div>
+    @if(passValidate.length > 0 && !samePassword){
+      <div>
+        Las contraseñas no coinciden
+      </div>
+    }
+  </div>
+  <div class="d-flex justify-content-center">
+    <button [disabled]="showSpinner" type="submit" mat-raised-button color="primary">Registrar</button>
+  </div>
+</form>
+<spinner [show]="showSpinner" [message]="spinnerMessage"></spinner>

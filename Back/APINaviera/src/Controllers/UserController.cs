@@ -43,23 +43,23 @@ namespace APINaviera.src.Controllers
 
             if (user == null)
             {
-                var userResponse = new FetchUserInfoResponse
+                var userResponse = new FetchInfoResponse<UserDTO>
                 {
                     success = false,
                     message = "User not found",
                     httpCode = HttpStatusCode.NotFound,
-                    user = null
+                    objectResponse = null
                 };
                 return NotFound(userResponse);
             }
             else
             {
-                var userResponse = new FetchUserInfoResponse
+                var userResponse = new FetchInfoResponse<UserDTO>
                 {
                     success = true,
                     message = "User found successfully",
                     httpCode = HttpStatusCode.OK,
-                    user = _userServices.ConvertUserToUserDTO(user)
+                    objectResponse = _userServices.ConvertUserToUserDTO(user)
                 };
                 return Ok(userResponse);
             }
@@ -87,7 +87,7 @@ namespace APINaviera.src.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var userResponseBad = new FetchUserInfoResponse
+                var userResponseBad = new FetchInfoResponse<User>
                 {
                     success = false,
                     message = "The user sent does not meet the mimimal user requirements, the user structure contains: \n" +
@@ -99,42 +99,56 @@ namespace APINaviera.src.Controllers
                     "bool isRegistered \r\n" +
                     "UserRoles role ",
                     httpCode = HttpStatusCode.BadRequest,
-                    user = null
+                    objectResponse = null
                 };
                 return BadRequest(userResponseBad);
             }
 
             if (userRegister.email == null || userRegister.email.Length == 0)
             {
-                var userResponseBad = new FetchUserInfoResponse
+                var userResponseBad = new FetchInfoResponse<User>
                 {
                     success = false,
                     message = "The 'email' is missing from the minimum required info",
                     httpCode = HttpStatusCode.BadRequest,
-                    user = null
+                    objectResponse = null
                 };
                 return BadRequest(userResponseBad);
             }
-            else if (_userServices.IsRegistered(userRegister.email))
+
+            User userExistent = _userServices.GetUserByEmail(userRegister.email);
+            if (userExistent != null)
             {
-                var userResponseExistent = new FetchUserInfoResponse
+                if (!userExistent.isRegistered)
+                {
+                    var userResponseNotRegistered = new FetchInfoResponse<User>
+                    {
+                        success = true,
+                        message = "El correo ingresado para el usuario ya existe",
+                        httpCode = HttpStatusCode.OK,
+                        objectResponse = userExistent
+                    };
+                    return Ok(userResponseNotRegistered);
+                }
+
+                var userResponseExistent = new FetchInfoResponse<User>
                 {
                     success = false,
                     message = "El correo ingresado para el usuario ya existe",
                     httpCode = HttpStatusCode.Conflict,
-                    user = null
+                    objectResponse = null
                 };
                 return Conflict(userResponseExistent);
             }
 
             if(userRegister.password == null)
             {
-                var userResponseBad = new FetchUserInfoResponse
+                var userResponseBad = new FetchInfoResponse<User>
                 {
                     success = false,
                     message = "The 'password' is missing from the minimum required info",
                     httpCode = HttpStatusCode.BadRequest,
-                    user = null
+                    objectResponse = null
                 };
                 return BadRequest(userResponseBad);
             }
@@ -145,15 +159,14 @@ namespace APINaviera.src.Controllers
             _dbContext.Users.Add(userRegister);
             _dbContext.SaveChanges();
 
-            var userResponse = new FetchUserInfoResponse
+            var userResponse = new FetchInfoResponse<UserDTO>
             {
                 success = true,
                 message = "User registered successfully",
                 httpCode = HttpStatusCode.OK,
-                user = _userServices.ConvertUserToUserDTO(userRegister)
+                objectResponse = _userServices.ConvertUserToUserDTO(userRegister)
             };
             return Ok(userResponse);
-
         }
 
         [AllowAnonymous]
