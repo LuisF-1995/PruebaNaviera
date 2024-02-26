@@ -134,5 +134,36 @@ namespace APINaviera.src.Controllers
             };
             return Ok(travelResponse);
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteTravel(int id)
+        {
+            var travel = _travelServices.GetTravelById(id);
+
+            if (travel == null)
+            {
+                var travelResponse = new FetchInfoResponse<Travel>
+                {
+                    success = false,
+                    message = "User not found",
+                    httpCode = HttpStatusCode.NotFound,
+                    objectResponse = null
+                };
+                return NotFound(travelResponse);
+            }
+            else
+            {
+                _dbContext.Travels.Remove(travel);
+                _dbContext.SaveChanges();
+                var travelResponse = new FetchInfoResponse<Travel>
+                {
+                    success = true,
+                    message = "Travel deleted successfully",
+                    httpCode = HttpStatusCode.OK,
+                    objectResponse = null
+                };
+                return Ok(travelResponse);
+            }
+        }
     }
 }

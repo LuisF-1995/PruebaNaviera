@@ -1,0 +1,45 @@
+.container-root{
+  height: auto;
+  margin: 10px;
+}
+
+.travel-container{
+  width: 50%;
+}
+
+.travel-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.travel-selector {
+  width: 50%;
+}
+
+.button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.login-register-container{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.dark-modal .modal-content {
+  background-color: #292b2c;
+  color: white;
+}
+.dark-modal .close {
+  color: white;
+}
+.light-blue-backdrop {
+  background-color: #5cb3fd;
+}

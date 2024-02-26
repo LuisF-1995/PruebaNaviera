@@ -3,28 +3,32 @@
   "WorkspaceRootPath": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|d:\\luisdocsinfoandprojects\\pruebastecnicas\\globaldevtalents\\back\\apinaviera\\src\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|solutionrelative:src\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|d:\\luisdocsinfoandprojects\\pruebastecnicas\\globaldevtalents\\back\\apinaviera\\src\\controllers\\ticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|solutionrelative:src\\controllers\\ticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|d:\\luisdocsinfoandprojects\\pruebastecnicas\\globaldevtalents\\back\\apinaviera\\src\\controllers\\travelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|solutionrelative:src\\controllers\\travelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|d:\\luisdocsinfoandprojects\\pruebastecnicas\\globaldevtalents\\back\\apinaviera\\src\\services\\ticketservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|solutionrelative:src\\services\\ticketservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|d:\\luisdocsinfoandprojects\\pruebastecnicas\\globaldevtalents\\back\\apinaviera\\src\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|solutionrelative:src\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|d:\\luisdocsinfoandprojects\\pruebastecnicas\\globaldevtalents\\back\\apinaviera\\src\\models\\travel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|solutionrelative:src\\models\\travel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|d:\\luisdocsinfoandprojects\\pruebastecnicas\\globaldevtalents\\back\\apinaviera\\src\\controllers\\travelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|solutionrelative:src\\controllers\\travelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|d:\\luisdocsinfoandprojects\\pruebastecnicas\\globaldevtalents\\back\\apinaviera\\src\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|solutionrelative:src\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|d:\\luisdocsinfoandprojects\\pruebastecnicas\\globaldevtalents\\back\\apinaviera\\src\\models\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|solutionrelative:src\\models\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|d:\\luisdocsinfoandprojects\\pruebastecnicas\\globaldevtalents\\back\\apinaviera\\src\\services\\ticketservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|solutionrelative:src\\services\\ticketservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9D8391EB-7B52-46B4-8B67-625B082CC7FE}|APINaviera.csproj|d:\\luisdocsinfoandprojects\\pruebastecnicas\\globaldevtalents\\back\\apinaviera\\src\\services\\travelservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,33 +50,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Ticket.cs",
-              "DocumentMoniker": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Models\\Ticket.cs",
-              "RelativeDocumentMoniker": "src\\Models\\Ticket.cs",
-              "ToolTip": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Models\\Ticket.cs",
-              "RelativeToolTip": "src\\Models\\Ticket.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAASAAAA",
+              "DocumentIndex": 0,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Models\\User.cs",
+              "RelativeDocumentMoniker": "src\\Models\\User.cs",
+              "ToolTip": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Models\\User.cs",
+              "RelativeToolTip": "src\\Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-25T22:11:37.473Z",
+              "WhenOpened": "2024-02-26T04:20:03.747Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Travel.cs",
               "DocumentMoniker": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Models\\Travel.cs",
               "RelativeDocumentMoniker": "src\\Models\\Travel.cs",
               "ToolTip": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Models\\Travel.cs",
               "RelativeToolTip": "src\\Models\\Travel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAVAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-25T21:49:00.165Z",
+              "WhenOpened": "2024-02-26T03:38:23.454Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
+              "Title": "UserRoles.cs",
+              "DocumentMoniker": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Models\\UserRoles.cs",
+              "RelativeDocumentMoniker": "src\\Models\\UserRoles.cs",
+              "ToolTip": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Models\\UserRoles.cs",
+              "RelativeToolTip": "src\\Models\\UserRoles.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T00:23:53.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "TravelServices.cs",
               "DocumentMoniker": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Services\\TravelServices.cs",
               "RelativeDocumentMoniker": "src\\Services\\TravelServices.cs",
@@ -80,12 +97,11 @@
               "RelativeToolTip": "src\\Services\\TravelServices.cs",
               "ViewState": "AQIAAAUAAAAAAAAAAAAAAD0AAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-25T19:24:33.059Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-25T19:24:33.059Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "TicketServices.cs",
               "DocumentMoniker": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Services\\TicketServices.cs",
               "RelativeDocumentMoniker": "src\\Services\\TicketServices.cs",
@@ -98,39 +114,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "src\\Controllers\\UserController.cs",
               "ToolTip": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Controllers\\UserController.cs",
               "RelativeToolTip": "src\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAqwCYAAAAZAAAA",
+              "ViewState": "AQIAAJ4AAAAAAAAAAAAmwCABAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-24T21:48:46.553Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "TicketController.cs",
               "DocumentMoniker": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Controllers\\TicketController.cs",
               "RelativeDocumentMoniker": "src\\Controllers\\TicketController.cs",
               "ToolTip": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Controllers\\TicketController.cs",
               "RelativeToolTip": "src\\Controllers\\TicketController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAQwHcAAAAJAAAA",
+              "ViewState": "AQIAACIAAAAAAAAAAAAgwHoAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-25T15:00:43.735Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "TravelController.cs",
               "DocumentMoniker": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Controllers\\TravelController.cs",
               "RelativeDocumentMoniker": "src\\Controllers\\TravelController.cs",
               "ToolTip": "D:\\LuisDocsInfoAndProjects\\PruebasTecnicas\\GlobalDevTalents\\Back\\APINaviera\\src\\Controllers\\TravelController.cs",
               "RelativeToolTip": "src\\Controllers\\TravelController.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAgwEEAAABNAAAA",
+              "ViewState": "AQIAABYAAAAAAAAAAAAUwBoAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-25T21:24:05.162Z",
               "EditorCaption": ""

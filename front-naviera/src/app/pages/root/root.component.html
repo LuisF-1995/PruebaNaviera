@@ -1,0 +1,70 @@
+<main class="container-root">
+  <section class="travel-container">
+    <h3 style="text-align: center;">Elige tu proximo destino</h3>
+    <form class="travel-form">
+      <mat-form-field class="travel-selector">
+        <mat-label>Seleccionar viaje</mat-label>
+        <input type="text"
+               placeholder="Destino"
+               aria-label="Number"
+               matInput
+               [formControl]="myControl"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          @for (option of filteredOptions | async; track option) {
+            <mat-option [value]="option.destination">{{option.destination}}</mat-option>
+          }
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+
+    @if(travelSelected != undefined){
+      <div>
+        <h4 style="text-align: center;">Información del recorrido</h4>
+        <p>Destino: {{travelSelected.destination}}</p>
+        <p>Fecha de Salida: {{travelSelected.departureDateTime && travelSelected.departureDateTime.length > 0 ? travelSelected.departureDateTime.split("T")[0] : null}}</p>
+        <p>Hora de Salida: {{travelSelected.departureDateTime && travelSelected.departureDateTime.length > 0 ? travelSelected.departureDateTime.split("T")[1] : null}}</p>
+        <p>Costo: {{travelSelected.cost}} USD</p>
+        <p>Limite de pasajeros: {{travelSelected.passengersLimit}}</p>
+        <p>Cantidad de asientos disponibles: {{travelSelected.availableSeatsNumber}}</p>
+        <div class="button-container">
+          <button
+            style="text-align: center;"
+            mat-fab extended color="primary"
+            (click)="openModal(longContent)"
+            >
+            <mat-icon>directions_boat</mat-icon>
+            Elegir viaje
+          </button>
+        </div>
+      </div>
+    }
+  </section>
+  <section class="login-register-container">
+    <div class="login-section">
+
+    </div>
+    <div class="register-section">
+
+    </div>
+  </section>
+
+  <ng-template #longContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Datos de reserva</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <input type="text" name="name" required>
+        <input type="email" name="email" id="email" required>
+        <input type="text" name="documentNumber" id="documentNumber" required>
+        <input type="tel" name="phone" id="phone">
+        <input type="checkbox" name="returns" id="returns">
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+</main>
