@@ -5,8 +5,13 @@
   <a [routerLink]="rootPath">{{title}}</a>
   <span class="example-spacer"></span>
 
-  <a [routerLink]="ticketBoothPath" type="button" class="btn btn-outline-primary">Boletería</a>
-  <a [routerLink]="adminPath" type="button" class="btn btn-outline-primary mx-2">Administrador</a>
+  @if(userSigned){
+    <span>{{userInfo.name}}</span>
+  }
+  @else{
+    <a [routerLink]="ticketBoothPath" type="button" class="btn btn-outline-primary">Boletería</a>
+    <a [routerLink]="adminPath" type="button" class="btn btn-outline-primary mx-2">Administrador</a>
+  }
 
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <fa-icon [icon]="faUser"></fa-icon>

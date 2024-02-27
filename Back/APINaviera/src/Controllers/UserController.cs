@@ -5,6 +5,7 @@ using APINaviera.src.Security;
 using APINaviera.src.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Net;
 
 
@@ -285,6 +286,17 @@ namespace APINaviera.src.Controllers
                     user = null
                 };
                 return BadRequest(userResponseBad);
+            }
+
+            var userExistent = _dbContext.Users.AsNoTracking().FirstOrDefault(u => u.id == userUpdate.id);
+            if(userUpdate.password == null)
+            {
+                userUpdate.password = userExistent.password;
+            }
+            else
+            {
+                string passwordHash = _securityServices.HashPassword(userUpdate.password);
+                userUpdate.password = passwordHash;
             }
 
             _dbContext.Users.Update(userUpdate);

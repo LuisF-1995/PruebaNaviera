@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("APINaviera")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e78dc856b9eeb92419639ca4d78314189dfe3c20")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82aea6316d831a9644c9965eca4d3e30605065ae")]
 [assembly: System.Reflection.AssemblyProductAttribute("APINaviera")]
 [assembly: System.Reflection.AssemblyTitleAttribute("APINaviera")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

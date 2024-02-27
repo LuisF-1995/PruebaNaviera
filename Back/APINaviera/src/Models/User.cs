@@ -6,7 +6,7 @@ namespace APINaviera.src.Models
     public class User
     {
         [Key]
-        public int id { get; }
+        public int id { get; set; }
         [Required]
         public string name { get; set; }
         public string? email { get; set; }

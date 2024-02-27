@@ -17,6 +17,7 @@ import Swal from 'sweetalert2';
 import { roleKey, tokenKey, userIdKey } from '../../../constants/localStorageKeys';
 import { HttpStatusCode } from '@angular/common/http';
 import { admin, ticketBooth, user } from '../../../constants/Routes';
+import { LocalStorageService } from '../../services/local-storage/local-storage.service';
 
 @Component({
   selector: 'login',
@@ -35,7 +36,7 @@ import { admin, ticketBooth, user } from '../../../constants/Routes';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor(private router:Router, private apiService: ApiService){}
+  constructor(private router:Router, private apiService: ApiService, private localStorageService: LocalStorageService){}
 
   showSpinner:boolean = false;
   spinnerMessage:string = '';
@@ -56,15 +57,15 @@ export class LoginComponent {
       next: (registerUserResponse:IApiResponse) => {
         if(registerUserResponse.httpCode === HttpStatusCode.Ok && registerUserResponse.success && registerUserResponse.token && registerUserResponse.token.length > 0){
           localStorage.clear();
-          localStorage.setItem(tokenKey, registerUserResponse.token);
-          localStorage.setItem(userIdKey, registerUserResponse.id ? registerUserResponse.id.toString() : "");
+          this.localStorageService.setItem(tokenKey, registerUserResponse.token);
+          this.localStorageService.setItem(userIdKey, registerUserResponse.id ? registerUserResponse.id.toString() : "");
           if(registerUserResponse.role === 0){
             let rolString = "";
             rolString = registerUserResponse.role?.toString();
-            localStorage.setItem(roleKey, rolString);
+            this.localStorageService.setItem(roleKey, rolString);
           }
           else{
-            localStorage.setItem(roleKey, registerUserResponse.role ? registerUserResponse.role.toString() : "");
+            this.localStorageService.setItem(roleKey, registerUserResponse.role ? registerUserResponse.role.toString() : "");
           }
           this.showSpinner = false;
 

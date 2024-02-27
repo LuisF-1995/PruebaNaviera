@@ -1,1 +1,53 @@
-<p>user works!</p>
+<main class="container-fluid my-2">
+  <mat-grid-list cols="2" rowHeight="2:1.6">
+    <mat-grid-tile colspan="1" rowspan="1">
+      <section class="travel-container">
+        <h3 style="text-align: center;">Elige tu proximo destino</h3>
+        <form class="travel-form">
+          <mat-form-field class="travel-selector">
+            <mat-label>Seleccionar viaje</mat-label>
+            <input type="text"
+                    placeholder="Destino"
+                    aria-label="Number"
+                    matInput
+                    [formControl]="myControl"
+                    [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              @for (option of filteredOptions | async; track option) {
+                <mat-option [value]="option.destination">{{option.destination}}</mat-option>
+              }
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+
+        @if(travelSelected.id != 0){
+          <div>
+            <h4 style="text-align: center;">Información del recorrido</h4>
+            <p>Destino: {{travelSelected.destination}}</p>
+            <p>Fecha de Salida: {{travelSelected.departureDateTime && travelSelected.departureDateTime.length > 0 ? travelSelected.departureDateTime.split("T")[0] : null}}</p>
+            <p>Hora de Salida: {{travelSelected.departureDateTime && travelSelected.departureDateTime.length > 0 ? travelSelected.departureDateTime.split("T")[1] : null}}</p>
+            <p>Costo: {{travelSelected.cost}} USD</p>
+            <p>Limite de pasajeros: {{travelSelected.passengersLimit}}</p>
+            <p>Cantidad de asientos disponibles: {{travelSelected.availableSeatsNumber}}</p>
+            <mat-checkbox [(ngModel)]="ticketForm.returns" name="returns" [ngModelOptions]="{standalone: true}">¿Ida y vuelta?</mat-checkbox>
+            <div class="button-container">
+              <button
+                style="text-align: center;"
+                mat-fab extended color="primary"
+                (click)="registerTicket()"
+                >
+                <mat-icon>directions_boat</mat-icon>
+                Elegir viaje
+              </button>
+            </div>
+          </div>
+        }
+      </section>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+      <section class="ticket-container">
+        <ticket-widget [reloadWidget]="reloadWidget" [userInfo]="userInfo"></ticket-widget>
+      </section>
+    </mat-grid-tile>
+  </mat-grid-list>
+</main>

@@ -1,6 +1,45 @@
 @if(userSigned){
-  <section>
-    Widget usuario registrado
+  <section class="container-fluid ticket-widget">
+    <h1 style="text-align: center;">Ticket widget</h1>
+
+    <div class="row">
+      @if(qrCodeDataURL && qrCodeDataURL.length > 0){
+        <div class="col d-flex justify-content-center" #qrCodeImgContainer style="width: 80%;">
+          <img [src]="qrCodeDataURL" alt="Código QR">
+        </div>
+      }
+    </div>
+
+    <h2>Información del pasajero</h2>
+    <div class="row">
+      <p class="col-12">Nombre completo: {{userInfo.name}}</p>
+      <p class="col-12">Número de documento: {{userInfo.documentNumber}}</p>
+    </div>
+
+    <h2>Información del viaje</h2>
+    <div class="row">
+      <p class="col-12">Destino: {{travelInfo.destination}}</p>
+      <p class="col-6">Fecha de salida: {{travelInfo.departureDateTime.split("T")[0]}}</p>
+      <p class="col-6">Hora de salida: {{travelInfo.departureDateTime.split("T")[1]}}</p>
+    </div>
+
+    <h2>Información del tiquete</h2>
+    <div class="row">
+      <p class="col-4">Ticket id: {{ticketInfo.id}}</p>
+      <p class="col-8">Referencia: {{ticketInfo.ticket}}</p>
+      @if(ticketInfo.returns){
+        <p class="col-6">El tiquete es válido para ida y vuelta</p>
+      }
+      @else{
+        <p class="col-6">El tiquete es solo válido para ida</p>
+      }
+      @if(ticketInfo.redeemed){
+        <p class="col-6">El tiquete ya fue redimido y no se puede usar</p>
+      }
+      @else{
+        <p class="col-6">El tiquete aún no ha sido redimido</p>
+      }
+    </div>
   </section>
 }
 @else{
