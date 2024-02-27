@@ -1,0 +1,34 @@
+<form (ngSubmit)="createTravel()" ngNativeValidate style="padding: 10px;">
+  <div class="mb-3">
+    <label for="inputDestination" class="form-label">Destino</label>
+    <input [(ngModel)]="registerTravelForm.destination" name="destination" type="text" class="form-control" id="inputDestination" placeholder="Cancún - México" required>
+  </div>
+  <div class="mb-3">
+    <label for="shipSelectorId" class="form-label">Seleccionar Nave/embarcación</label>
+    <select [(ngModel)]="registerTravelForm.shipId" name="shipId" class="form-select" id="shipSelectorId" required>
+      @for(ship of ships; track ship){
+        <option value="{{ship.id}}">{{ship.name}}</option>
+      }
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="inputPassengersLimit" class="form-label">Limite de pasajeros</label>
+    <input [(ngModel)]="registerTravelForm.passengersLimit" name="passengersLimit" type="number" class="form-control" id="inputPassengersLimit" placeholder="1000" required>
+  </div>
+  <div class="mb-3">
+    <label for="costId" class="form-label">Costo por tiquete</label>
+    <input [(ngModel)]="registerTravelForm.cost" name="cost" type="text" class="form-control" id="costId" placeholder="2500.65" required>
+  </div>
+  <div class="mb-3">
+    <mat-form-field color="accent">
+      <mat-label>Fecha de salida</mat-label>
+      <input matInput [matDatepicker]="picker2" [(ngModel)]="registerTravelForm.departureDateTime" name="departureDateTime">
+      <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2 color="primary"></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button [disabled]="showSpinner" type="submit" mat-raised-button color="primary">Registrar</button>
+  </div>
+</form>
+<spinner [show]="showSpinner" [message]="spinnerMessage"></spinner>

@@ -8,7 +8,7 @@ export interface IUser {
   documentNumber?: string;
   phone?: string;
   isRegistered?: boolean;
-  role: 0|1|2|3;
+  role: number;
 }
 
 export interface IUserLogin {
@@ -45,13 +45,13 @@ export interface ITicket {
 }
 
 export interface ITravel {
-  id: number;
+  id?: number;
   destination: string;
   shipId: number;
   departureDateTime: string;
   cost: number;
   passengersLimit: number;
-  availableSeatsNumber: number;
+  availableSeatsNumber?: number;
 }
 
 export interface IApiResponse {

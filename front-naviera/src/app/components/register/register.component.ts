@@ -66,6 +66,8 @@ export class RegisterComponent {
     this.showSpinner = true;
     this.spinnerMessage = 'Verificando usuario ...';
     if(this.samePassword){
+      const rol = parseInt(this.registerUserForm.role.toString());
+      this.registerUserForm.role = rol;
       this.apiService.post(apiPaths.root, `${apiPaths.endpoints.users.root}/${apiPaths.endpoints.users.register}`, this.registerUserForm).subscribe({
         next: (registerUserResponse:IApiResponse) => {
           this.showSpinner = false;

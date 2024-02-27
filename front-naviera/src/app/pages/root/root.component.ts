@@ -183,7 +183,8 @@ export class RootPage implements OnInit {
     this.apiService.post(apiPaths.root, apiPaths.endpoints.tickets.root, this.ticketForm).subscribe({
       next: (registerTicketResponse:IApiResponse) => {
         if(registerTicketResponse.httpCode === HttpStatusCode.Ok && registerTicketResponse.success){
-          this.travelSelected.availableSeatsNumber -= 1;
+          if(this.travelSelected.availableSeatsNumber)
+            this.travelSelected.availableSeatsNumber -= 1;
           localStorage.setItem(userIdKey, registerTicketResponse.objectResponse.userId);
           localStorage.setItem(roleKey, this.userTicketForm.role.toString());
           localStorage.setItem(registeredUserKey, this.userTicketForm.isRegistered ? 'true':'false');
@@ -213,7 +214,7 @@ export class RootPage implements OnInit {
       const userResponse = await this.registerExternalUser();
 
       if(userResponse && userResponse.httpCode === HttpStatusCode.Ok && userResponse.success && userResponse.objectResponse){
-        this.ticketForm.travelId = this.travelSelected.id ;
+        this.ticketForm.travelId = this.travelSelected.id ? this.travelSelected.id:0;
         this.ticketForm.userId = userResponse.objectResponse.id;
         await this.registerTicket();
       }

@@ -21,6 +21,14 @@
     <input [(ngModel)]="registerUserForm.phone" name="phone" type="tel" class="form-control" id="inputTel" placeholder="1234567890">
   </div>
   <div class="mb-3">
+    <label for="rolSelectorId" class="form-label">Seleccionar rol</label>
+    <select [(ngModel)]="registerUserForm.role" name="role" class="form-select" id="rolSelectorId">
+      <option value="0">Administrador</option>
+      <option value="1">Boletería</option>
+      <option value="2">Cliente</option>
+    </select>
+  </div>
+  <div class="mb-3">
     <label for="inputPassword" class="form-label">Contraseña</label>
     <div style="display: flex;">
       <input [(ngModel)]="registerUserForm.password" [type]="hidePassword ? 'password' : 'text'" name="password" class="form-control" id="inputPassword" placeholder="Contraseña" (change)="validatePassword()" required>

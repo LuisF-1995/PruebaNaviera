@@ -13,6 +13,6 @@ namespace APINaviera.src.Models
         [Required]
         [MaxLength(20)]
         public string model { get; set; }
-        public string? image { get; set; }
+        public byte[]? image { get; set; }
     }
 }

@@ -16,7 +16,7 @@ import { apiPaths } from '../../../constants/apiRoutes';
 import Swal from 'sweetalert2';
 import { roleKey, tokenKey, userIdKey } from '../../../constants/localStorageKeys';
 import { HttpStatusCode } from '@angular/common/http';
-import { user } from '../../../constants/Routes';
+import { admin, ticketBooth, user } from '../../../constants/Routes';
 
 @Component({
   selector: 'login',
@@ -67,7 +67,21 @@ export class LoginComponent {
             localStorage.setItem(roleKey, registerUserResponse.role ? registerUserResponse.role.toString() : "");
           }
           this.showSpinner = false;
-          this.router.navigateByUrl(user.path);
+
+          switch (registerUserResponse.role) {
+            case 0:
+              this.router.navigateByUrl(admin.path);
+              break;
+            case 1:
+              this.router.navigateByUrl(ticketBooth.path);
+              break;
+            case 2:
+              this.router.navigateByUrl(user.path);
+              break;
+
+            default:
+              break;
+          }
         }
       },
       error: (error) => {

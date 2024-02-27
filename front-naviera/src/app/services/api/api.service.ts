@@ -21,7 +21,7 @@ export class ApiService {
     return this.http.get<any>(`${apiUrl}/${endpoint}`, { headers: headers });
   }
 
-  post(apiUrl:string, endpoint: string, data: any, token?:string): Observable<any> {
+  post(apiUrl:string, endpoint: string, data: any, token?:string|null): Observable<any> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
@@ -33,7 +33,7 @@ export class ApiService {
     return this.http.post<any>(`${apiUrl}/${endpoint}`, data, { headers: headers });
   }
 
-  put(apiUrl:string, endpoint: string, data: any, token?:string): Observable<any> {
+  put(apiUrl:string, endpoint: string, data: any, token?:string|null): Observable<any> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });

@@ -23,6 +23,8 @@ export class AppComponent implements OnInit {
 
   title = 'Naviera Sea Around';
   rootPath = root.path;
+  adminPath = admin.path;
+  ticketBoothPath = ticketBooth.path;
   faUser = faUser;
   userSigned = false;
 

@@ -1,0 +1,18 @@
+<form (ngSubmit)="createShip()" ngNativeValidate style="padding: 10px;">
+  <div class="mb-3">
+    <label for="inputShipName" class="form-label">Nombre de la nave</label>
+    <input [(ngModel)]="shipForm.name" name="name" type="text" class="form-control" id="inputShipName" placeholder="The big blue" required>
+  </div>
+  <div class="mb-3">
+    <label for="inputShipModel" class="form-label">Modelo de la nave</label>
+    <input [(ngModel)]="shipForm.model" name="model" type="text" class="form-control" id="inputShipModel" placeholder="Panamax" required>
+  </div>
+  <div class="input-group mb-3">
+    <input [(ngModel)]="shipForm.image" name="image" type="file" accept="image/*" (change)="convertImgToBase64($event)" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <button [disabled]="showSpinner" type="submit" mat-raised-button color="primary">Registrar nave</button>
+  </div>
+</form>
+<spinner [show]="showSpinner" [message]="spinnerMessage"></spinner>

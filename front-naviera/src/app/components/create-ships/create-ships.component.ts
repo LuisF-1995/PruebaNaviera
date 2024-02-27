@@ -1,7 +1,4 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { root } from '../../../constants/Routes';
-import { roleKey, tokenKey, userIdKey } from '../../../constants/localStorageKeys';
+import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,15 +7,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { SpinnerComponent } from '../../components/spinner/spinner.component';
+import { SpinnerComponent } from '../spinner/spinner.component';
+import { IApiResponse, IShip } from '../../../constants/Interfaces';
 import { ApiService } from '../../services/api/api.service';
+import { tokenKey } from '../../../constants/localStorageKeys';
 import { apiPaths } from '../../../constants/apiRoutes';
-import { IApiResponse } from '../../../constants/Interfaces';
 import Swal from 'sweetalert2';
 import { HttpStatusCode } from '@angular/common/http';
 
 @Component({
-  selector: 'ticket-booth-page',
+  selector: 'create-ships',
   standalone: true,
   imports: [
     FormsModule,
@@ -29,39 +27,46 @@ import { HttpStatusCode } from '@angular/common/http';
     MatButtonModule, MatTooltipModule, MatIconModule, MatCheckboxModule,
     SpinnerComponent,
   ],
-  templateUrl: './ticket-booth.component.html',
-  styleUrl: './ticket-booth.component.css'
+  templateUrl: './create-ships.component.html',
+  styleUrl: './create-ships.component.css'
 })
 
-export class TicketBoothPage {
-  constructor (private router:Router, private apiService:ApiService) {}
+export class CreateShipsComponent {
+  constructor (private apiService:ApiService){}
 
-  userLogged:boolean = false;
-  ticketId:number = 0;
+  shipForm:IShip = {
+    name: "",
+    model: "",
+    image: ""
+  }
   showSpinner:boolean = false;
   spinnerMessage:string = '';
   errorMessage:string = "";
 
-  ngOnInit(): void {
-    if(typeof(window) !== 'undefined' && localStorage && localStorage.length > 0 && localStorage.getItem(tokenKey) && localStorage.getItem(userIdKey) && localStorage.getItem(roleKey) && localStorage.getItem(roleKey) === "1"){
-      this.userLogged = true;
-    }
-    else{
-      this.router.navigateByUrl(root.path);
-    }
+  convertImgToBase64(event: any){
+    const file: File = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const base64String = reader.result && reader.result.toString().split(',')[1];
+      const base64Image: string = 'data:image/' + file.type.split('/')[1] + ';base64,' + base64String;
+      this.shipForm.image = base64Image;
+    };
+
+    reader.readAsDataURL(file);
   }
 
-  async redeemTicket(){
+  async createShip(){
     this.showSpinner = true;
-    this.spinnerMessage = 'Redimiento el tiquete...';
+    this.spinnerMessage = 'Registrando una nueva nave...';
     const jwtToken = localStorage.getItem(tokenKey);
 
-    this.apiService.put(apiPaths.root, `${apiPaths.endpoints.tickets.root}/${apiPaths.endpoints.tickets.redeemTicket}/${this.ticketId}`, null, jwtToken).subscribe({
+    this.apiService.post(apiPaths.root, apiPaths.endpoints.ships.root, this.shipForm, jwtToken).subscribe({
       next: (registerTravelResponse:IApiResponse) => {
         if(registerTravelResponse.httpCode === HttpStatusCode.Ok && registerTravelResponse.success){
           Swal.fire({
             icon: 'success',
-            title: `Tiquete redimido`,
+            title: `Nave registrada exitosamente`,
           });
         }
         this.showSpinner = false;
@@ -70,10 +75,11 @@ export class TicketBoothPage {
         this.showSpinner=false;
         Swal.fire({
           icon: 'error',
-          title: 'No se pudo redimir el tiquete',
-          text: `${error.error.message}`,
+          title: 'No se pudo registrar la nave',
+          text: `${error}`,
         });
       }
     });
+
   }
 }
