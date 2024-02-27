@@ -49,6 +49,12 @@ export class TicketWidgetComponent implements OnInit, OnChanges {
     passengersLimit: 0,
     availableSeatsNumber: 0,
   };
+  countDownMonths:number = 0;
+  countDownDays:number = 0;
+  countDownHours:number = 0;
+  countDownMinutes:number = 0;
+  countDownSeconds:number = 0;
+
 
   ngOnInit(): void {
     this.validateLocalStorageVars();
@@ -100,6 +106,7 @@ export class TicketWidgetComponent implements OnInit, OnChanges {
         next: (response:IApiResponse) => {
           if(response.httpCode === HttpStatusCode.Ok && response.success){
             this.travelInfo = response.objectResponse;
+            this.counterDown(response.objectResponse.departureDateTime);
           }
         },
         error: (error) => {
@@ -128,5 +135,37 @@ export class TicketWidgetComponent implements OnInit, OnChanges {
     } catch (error) {
       console.error('Error al generar el código QR:', error);
     }
+  }
+
+  convertCounterDownToDate(segundos: number){
+    const SEGUNDOS_POR_MINUTO = 60;
+    const MINUTOS_POR_HORA = 60;
+    const HORAS_POR_DIA = 24;
+    const DIAS_POR_MES = 30;
+
+    const minutosTotales = Math.floor(segundos / SEGUNDOS_POR_MINUTO);
+    const horasTotales = minutosTotales / MINUTOS_POR_HORA;
+    const diasTotales = horasTotales / HORAS_POR_DIA;
+    const meses = Math.floor(diasTotales / DIAS_POR_MES);
+    const diasRestantes = Math.floor(diasTotales % DIAS_POR_MES);
+    const horas = Math.floor(horasTotales % MINUTOS_POR_HORA);
+    const minutosRestantes = Math.floor(minutosTotales % MINUTOS_POR_HORA);
+    const segundosRestantes = Math.floor(segundos % SEGUNDOS_POR_MINUTO);
+
+    this.countDownMonths = meses;
+    this.countDownDays = diasRestantes;
+    this.countDownHours = horas;
+    this.countDownMinutes = minutosRestantes;
+    this.countDownSeconds = segundosRestantes;
+  }
+
+  counterDown(departureDate:string){
+    const departureDateTime = new Date(departureDate);
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = departureDateTime.getTime() - now;
+      const countDownTotalMinutes:number = Math.floor(distance / (1000 ));
+      this.convertCounterDownToDate(countDownTotalMinutes);
+    }, 1000);
   }
 }

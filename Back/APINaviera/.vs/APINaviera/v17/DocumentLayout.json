@@ -79,8 +79,7 @@
               "RelativeToolTip": "src\\Models\\User.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-27T17:44:36.758Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-27T17:44:36.758Z"
             },
             {
               "$type": "Document",
@@ -140,8 +139,7 @@
               "RelativeToolTip": "src\\Controllers\\TicketController.cs",
               "ViewState": "AQIAAFoAAAAAAAAAAAAIwK0AAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T16:45:40.207Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T16:45:40.207Z"
             },
             {
               "$type": "Document",
@@ -153,8 +151,7 @@
               "RelativeToolTip": "src\\Models\\UserRoles.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-26T00:23:53.574Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T00:23:53.574Z"
             },
             {
               "$type": "Document",
@@ -178,8 +175,7 @@
               "RelativeToolTip": "src\\Controllers\\UserController.cs",
               "ViewState": "AQIAAFMAAAAAAAAAAAAqwCMBAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-24T21:48:46.553Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-24T21:48:46.553Z"
             }
           ]
         }
